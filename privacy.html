@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy policy – rclone backups</title>
+  <style>
+    :root { --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --accent: #0969da; --line: #d1d9e0; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --accent: #4493f8; --line: #3d444d; }
+    }
+    body { margin: 0; background: var(--bg); color: var(--fg);
+           font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    nav { display: flex; justify-content: flex-end; gap: .5rem; }
+    nav button { background: none; border: 1px solid var(--line); color: var(--fg);
+                 border-radius: 6px; padding: .25rem .6rem; cursor: pointer; font: inherit; font-size: .875rem; }
+    nav button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+    h1 { font-size: 1.6rem; margin: 1.5rem 0 .25rem; }
+    h2 { font-size: 1.1rem; margin-top: 1.75rem; }
+    .updated { color: var(--muted); font-size: .875rem; margin-top: 0; }
+    a { color: var(--accent); }
+    [lang="pt-BR"] { display: none; }
+    body.pt [lang="en"] { display: none; }
+    body.pt [lang="pt-BR"] { display: block; }
+  </style>
+</head>
+<body>
+<main>
+  <nav aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">English</button>
+    <button type="button" data-lang="pt" aria-pressed="false">Português</button>
+  </nav>
+
+  <section lang="en">
+    <h1>Privacy policy – rclone backups</h1>
+    <p class="updated">Last updated: 21 November 2026</p>
+
+    <h2>What the app is</h2>
+    <p>"rclone backups" is a private, personal-use application. It is the Google
+    sign-in identity of the open-source tool <a href="https://rclone.org">rclone</a>,
+    which copies backup files of systems run by the owner of this site from his
+    own servers to his own Google Drive. It is not offered to the public.</p>
+
+    <h2>What data it accesses</h2>
+    <p>It asks only for the Google Drive permission <code>drive.file</code>: access
+    to the files and folders that the app itself creates. It cannot see or change
+    any other file in the Drive. It does not read profile, contacts, e-mail or any
+    other Google data.</p>
+
+    <h2>How the data is used</h2>
+    <p>Backup files are uploaded, listed, and deleted when they are older than the
+    retention period. Nothing else is done with them.</p>
+
+    <h2>Sharing</h2>
+    <p>No data is sold, shared with third parties, or used for advertising or
+    analytics. The authorisation token is stored only on the owner's servers.</p>
+
+    <h2>Revoking access</h2>
+    <p>Access can be removed at any time at
+    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+
+    <p><a href="./">Back to the home page</a></p>
+  </section>
+
+  <section lang="pt-BR">
+    <h1>Política de privacidade – rclone backups</h1>
+    <p class="updated">Atualizada em 21 de novembro de 2026</p>
+
+    <h2>O que é o app</h2>
+    <p>"rclone backups" é um aplicativo privado, de uso pessoal. É a identidade de
+    login no Google da ferramenta de código aberto <a href="https://rclone.org">rclone</a>,
+    que copia os arquivos de backup dos sistemas do dono deste site, dos servidores
+    dele para o Google Drive dele. Não é oferecido ao público.</p>
+
+    <h2>Quais dados acessa</h2>
+    <p>Pede apenas a permissão do Google Drive <code>drive.file</code>: acesso aos
+    arquivos e pastas que o próprio app cria. Não vê nem altera nenhum outro
+    arquivo do Drive. Não lê perfil, contatos, e-mail nem outros dados do Google.</p>
+
+    <h2>Como os dados são usados</h2>
+    <p>Os arquivos de backup são enviados, listados e apagados quando passam do
+    prazo de retenção. Nada mais é feito com eles.</p>
+
+    <h2>Compartilhamento</h2>
+    <p>Nenhum dado é vendido, compartilhado com terceiros ou usado para publicidade
+    ou estatísticas. O token de autorização fica guardado só nos servidores do dono.</p>
+
+    <h2>Como revogar o acesso</h2>
+    <p>O acesso pode ser removido a qualquer momento em
+    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+
+    <p><a href="./">Voltar à página inicial</a></p>
+  </section>
+</main>
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('pt', lang === 'pt');
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    document.querySelectorAll('nav button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  document.querySelectorAll('nav button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.lang); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  if (saved === 'pt' || (!saved && location.hash === '#pt')) setLang('pt');
+</script>
+</body>
+</html>
